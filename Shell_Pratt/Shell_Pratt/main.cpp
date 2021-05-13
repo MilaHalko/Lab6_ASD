@@ -2,7 +2,7 @@
 #include "mainFunctions.hpp"
 
 int main() {
-    
+    /*
     //SEQUENCE_CREATING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     int choice;
@@ -25,6 +25,12 @@ int main() {
     }
     
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    
-    ShellSort(sequence);
+    */
+    //ShellSort(sequence);
+    PrattSequence Pratt;
+    Pratt.getPrattNums(200);
+    for (int i = 0; i < Pratt.nums.size(); i++) {
+        cout << Pratt.nums[i] << "  ";
+    }
+    cout << endl;
 }

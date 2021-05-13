@@ -3,4 +3,5 @@
 #include <vector>
 #include <time.h>
 #include <iomanip>
+#include "structPrattSequence.hpp"
 using namespace std;

@@ -1,10 +1,8 @@
+#pragma once
 #include "Libs.hpp"
 
-class PrattSequence
+struct PrattSequence
 {
     vector<int> nums;
-    
-public:
-    PrattSequence();
     void getPrattNums(int size);
 };

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		218B9441264C2749004ABBC4 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 218B9440264C2749004ABBC4 /* main.cpp */; };
 		218B9450264C304A004ABBC4 /* mainFunctions.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 218B944E264C304A004ABBC4 /* mainFunctions.cpp */; };
+		21CF11D3264DE43000B601DB /* structPrattSequence.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 21CF11D2264DE43000B601DB /* structPrattSequence.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,6 +30,8 @@
 		218B944A264C2781004ABBC4 /* Libs.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Libs.hpp; sourceTree = "<group>"; };
 		218B944E264C304A004ABBC4 /* mainFunctions.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = mainFunctions.cpp; sourceTree = "<group>"; };
 		218B944F264C304A004ABBC4 /* mainFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = mainFunctions.hpp; sourceTree = "<group>"; };
+		21CF11CD264DCE3A00B601DB /* structPrattSequence.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = structPrattSequence.hpp; sourceTree = "<group>"; };
+		21CF11D2264DE43000B601DB /* structPrattSequence.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = structPrattSequence.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +67,8 @@
 				218B9440264C2749004ABBC4 /* main.cpp */,
 				218B944F264C304A004ABBC4 /* mainFunctions.hpp */,
 				218B944E264C304A004ABBC4 /* mainFunctions.cpp */,
+				21CF11CD264DCE3A00B601DB /* structPrattSequence.hpp */,
+				21CF11D2264DE43000B601DB /* structPrattSequence.cpp */,
 				218B944A264C2781004ABBC4 /* Libs.hpp */,
 			);
 			path = Shell_Pratt;
@@ -127,6 +132,7 @@
 			files = (
 				218B9450264C304A004ABBC4 /* mainFunctions.cpp in Sources */,
 				218B9441264C2749004ABBC4 /* main.cpp in Sources */,
+				21CF11D3264DE43000B601DB /* structPrattSequence.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
