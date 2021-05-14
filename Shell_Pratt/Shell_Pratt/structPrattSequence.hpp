@@ -3,6 +3,6 @@
 
 struct PrattSequence
 {
-    vector<int> nums;
+    vector<int> gaps;
     void getPrattNums(int size);
 };

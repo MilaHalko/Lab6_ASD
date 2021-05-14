@@ -25,7 +25,7 @@ void Randomly(vector<int> &sequence)
 
 void Manually(vector<int> &sequence){
     
-    sequence.resize(1);
+    sequence.resize(0);
     string str;
     int counter = 1;
     
@@ -52,7 +52,6 @@ void Manually(vector<int> &sequence){
             break;
         }
     }
-    sequence.erase(sequence.begin());
     
     cout << "<< ";
     for (int i = 0; i < sequence.size() - 1; i++) cout << sequence[i] << ", ";              // << .., .., ..>>
@@ -60,30 +59,37 @@ void Manually(vector<int> &sequence){
 }
 
 
-void ShellSort(vector<int> &sequence, PrattSequence &gaps)
+void ShellSort(vector<int> &sequence)
 {
-    gaps.getPrattNums(sequence.size());
+    PrattSequence Pratt;
+    Pratt.getPrattNums(sequence.size());
     
     vector<int> subVector;
+    subVector.resize(0);
     
-    for (int n = 0; n < gaps.nums.size(); n++)                          // changes gaps
+    for (int n = 0; n < Pratt.gaps.size(); n++)                          // changes gaps
     {
-        for (int i = 0; i < gaps.nums[n]; i++)                          // first element (from 0 to gap's value)
+        for (int i = 0; i < Pratt.gaps[n]; i++)                          // first element (from 0 to gap's value)
         {
-            subVector.resize(1);
-            for (int j = 0; j < sequence.size(); j += gaps.nums[n])     // take every d element (d = gap's value)
+            for (int j = 0; j < sequence.size(); j += Pratt.gaps[n])     // take every d element (d = gap's value)
                 subVector.insert(subVector.begin(), sequence[j]);
             
             SortSubVector(subVector);                                   // subVector sorting
             
             int counter = 0;
-            for (int j = 0; j < sequence.size(); j += gaps.nums[n])     // sequence upgrading
+            for (int j = 0; j < sequence.size(); j += Pratt.gaps[n])     // sequence upgrading
             {
                 sequence[j] = subVector[counter];
                 counter++;
             }
+            subVector.clear();
         }
     }
+    
+    for (int i = 0; i < sequence.size(); i++) {
+        cout << sequence[i] << "  ";
+    }
+    cout << endl;
 }
 
 

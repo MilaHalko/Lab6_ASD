@@ -2,35 +2,28 @@
 #include "mainFunctions.hpp"
 
 int main() {
-    /*
+    
     //SEQUENCE_CREATING~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
-    int choice;
-    cout << "Do you want to create sequence randomly(1) or manually(2)? "; cin >> choice;
-    cout << endl;
+    string choice = "";
     
     vector<int> sequence;
-    switch (choice) {
-        case 1:
-            Randomly(sequence);
+    
+    while (true)
+    {
+        if (choice == "1"  ||  choice == "2")
+        {
+            if (choice == "1") Randomly(sequence);
+            else               Manually(sequence);
             break;
-            
-        case 2:
-            Manually(sequence);
-            break;
-            
-        default:
-            cout << "You wrote wrong symbol!" << endl;
-            exit(0);
+        }
+        else
+        {
+            cout << "Do you want to create sequence randomly(1) or manually(2)? "; cin >> choice;
+            cout << endl;
+        }
     }
     
     //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    */
-    //ShellSort(sequence);
-    PrattSequence Pratt;
-    Pratt.getPrattNums(200);
-    for (int i = 0; i < Pratt.nums.size(); i++) {
-        cout << Pratt.nums[i] << "  ";
-    }
-    cout << endl;
+    ShellSort(sequence);
 }
