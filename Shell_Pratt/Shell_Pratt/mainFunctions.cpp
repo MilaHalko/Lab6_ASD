@@ -86,10 +86,11 @@ void ShellSort(vector<int> &sequence)
         }
     }
     
-    for (int i = 0; i < sequence.size(); i++) {
-        cout << sequence[i] << "  ";
+    cout << "<< ";
+    for (int i = 0; i < sequence.size() - 1; i++) {
+        cout << sequence[i] << ", ";
     }
-    cout << endl;
+    cout << sequence[sequence.size() - 1] << " >>" << endl;
 }
 
 
