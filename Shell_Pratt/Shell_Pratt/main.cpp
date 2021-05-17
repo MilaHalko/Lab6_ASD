@@ -8,18 +8,21 @@ int main() {
     string choice = "";
     
     vector<int> sequence;
+    bool stop = false;
     
-    while (true)
+    while (!stop)
     {
-        if (choice == "1"  ||  choice == "2")
+        if (choice == "1"  ||  choice == "2"  ||  choice == "3"  ||  choice == "4")
         {
-            if (choice == "1") Randomly(sequence);
-            else               Manually(sequence);
-            break;
+            if (choice == "1")          Randomly(sequence);
+            else if (choice == "2")     Manually(sequence);
+            else if (choice == "3")     RandomlyBest(sequence);
+            else                        RandomlyWorst(sequence);
+            stop = true;
         }
         else
         {
-            cout << "Do you want to create sequence randomly(1) or manually(2)? "; cin >> choice;
+            cout << "Do you want to create sequence randomly(1), manually(2) or get the best(3) / worst(4) sequence? "; cin >> choice;
             cout << endl;
         }
     }

@@ -10,7 +10,52 @@ void Randomly(vector<int> &sequence)
     srand(time(0));
     for (int i = 0; i < qua; i++)
     {
-        sequence[i] = rand() % 100;
+        sequence[i] = rand() % 1000;
+    }
+    
+    int length = to_string(qua).size();                                                                                     //  1) ..
+    for (int i = 0; i < qua; i++) cout << setw(to_string(qua).size()) << right << i+1 << ") " << sequence[i] << endl;       //  2) ..
+    cout << endl;                                                                                                           // ..) ..
+    
+    cout << "<< ";
+    for (int i = 0; i < qua - 1; i++) cout << sequence[i] << ", ";              // << .., .., ..>>
+    cout << sequence[qua - 1] << " >>" << endl;
+}
+
+
+void RandomlyBest(vector<int> &sequence)
+{
+    unsigned int qua;  //quantity
+    cout << "How many numbers the sequence will have? "; cin >> qua;
+    cout << endl;
+    
+    sequence.resize(qua);
+    for (int i = 0; i < qua; i++)
+    {
+        sequence[i] = i + 1;
+    }
+    
+    int length = to_string(qua).size();                                                                                     //  1) ..
+    for (int i = 0; i < qua; i++) cout << setw(to_string(qua).size()) << right << i+1 << ") " << sequence[i] << endl;       //  2) ..
+    cout << endl;                                                                                                           // ..) ..
+    
+    cout << "<< ";
+    for (int i = 0; i < qua - 1; i++) cout << sequence[i] << ", ";              // << .., .., ..>>
+    cout << sequence[qua - 1] << " >>" << endl;
+}
+
+void RandomlyWorst(vector<int> &sequence)
+{
+    unsigned int qua;  //quantity
+    cout << "How many numbers the sequence will have? "; cin >> qua;
+    cout << endl;
+    
+    sequence.resize(qua);
+    int counter = 0;
+    for (int i = qua; i > 0; i--)
+    {
+        sequence[counter] = i;
+        counter++;
     }
     
     int length = to_string(qua).size();                                                                                     //  1) ..
@@ -61,28 +106,36 @@ void Manually(vector<int> &sequence){
 
 void ShellSort(vector<int> &sequence)
 {
+    int unsigned compare = 0;
+    int shuffle = 0;
+    
     PrattSequence Pratt;
     Pratt.getPrattNums(sequence.size());
     
-    vector<int> subVector;
-    subVector.resize(0);
-    
     for (int n = 0; n < Pratt.gaps.size(); n++)                          // changes gaps
     {
-        for (int i = 0; i < Pratt.gaps[n]; i++)                          // first element (from 0 to gap's value)
+        for (int i = Pratt.gaps[n]; i < sequence.size(); i++)                          // first element (from 0 to gap's value)
         {
-            for (int j = 0; j < sequence.size(); j += Pratt.gaps[n])     // take every d element (d = gap's value)
-                subVector.insert(subVector.begin(), sequence[j]);
-            
-            SortSubVector(subVector);                                   // subVector sorting
-            
-            int counter = 0;
-            for (int j = 0; j < sequence.size(); j += Pratt.gaps[n])     // sequence upgrading
+            int j;
+            bool stop = false;
+            for (j = i - Pratt.gaps[n]; j >= 0; j -= Pratt.gaps[n])
             {
-                sequence[j] = subVector[counter];
-                counter++;
+                compare++;
+                if (sequence[j] < sequence[i])
+                {
+                    stop = true;
+                    break;
+                }
             }
-            subVector.clear();
+            
+            j += Pratt.gaps[n];
+            compare++;
+            
+            if (sequence[j] > sequence[i])
+            {
+                swap(sequence[i], sequence[j]);
+                shuffle++;
+            }
         }
     }
     
@@ -91,22 +144,7 @@ void ShellSort(vector<int> &sequence)
         cout << sequence[i] << ", ";
     }
     cout << sequence[sequence.size() - 1] << " >>" << endl;
-}
-
-
-void SortSubVector(vector<int> &subVector)
-{
-    int minInd;
     
-    for (int i = 0; i < subVector.size() - 1; i++)                  // index for the minimum element
-    {
-        minInd = i;
-        
-        for (int j = i + 1; j < subVector.size(); j++)
-        {
-            if (subVector[minInd] > subVector[j])   minInd = j;
-        }
-        
-        if (minInd != i)   swap(subVector[i], subVector[minInd]);
-    }
+    cout << "compare = " << compare << endl;
+    cout << "shuffle = " << shuffle << endl;
 }
