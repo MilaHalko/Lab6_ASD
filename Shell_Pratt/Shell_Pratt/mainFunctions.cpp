@@ -129,7 +129,6 @@ void ShellSort(vector<int> &sequence)
             }
             
             j += Pratt.gaps[n];
-            compare++;
             
             if (sequence[j] > sequence[i])
             {
